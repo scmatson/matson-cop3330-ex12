@@ -1,4 +1,8 @@
 package base;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 /*
  *  UCF COP3330 Summer 2021 Assignment 1 Solution
  *  Copyright 2021 Scott Matson
@@ -34,4 +38,22 @@ Challenges
 
  */
 public class App {
+    public static void main(String[] args) {
+        Scanner ui = new Scanner(System.in);
+
+        System.out.print("Enter the principal: ");
+        int principal = ui.nextInt();
+
+        System.out.print("Enter the rate of interest: ");
+        double roi = ui.nextDouble();
+        double r = roi/100;
+
+        System.out.print("Enter the number of years: ");
+        int years = ui.nextInt();
+
+        DecimalFormat df = new DecimalFormat("###.00");
+        double amount = principal * (1 + (r * years));
+
+        System.out.print("After " + years + " years at " + roi + "%, the investment will be worth $" + df.format(amount) + ".");
+    }
 }
